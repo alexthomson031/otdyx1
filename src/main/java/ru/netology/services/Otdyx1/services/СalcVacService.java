@@ -1,6 +1,6 @@
 package ru.netology.services.Otdyx1.services;
 
-public class сalcVacService {
+public class СalcVacService {
 
     public int calculate(int income, int expenses, int threshold) {
         for (int month = 1; month <= 12; month++)
