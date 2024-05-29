@@ -1,20 +1,26 @@
 package ru.netology.services.Otdyx1.services;
-
 public class CalcVacService {
-
     public int calculate(int income, int expenses, int threshold) {
         int bankAccount = 0;
-        while (bankAccount <= 0) {
-            System.out.println("Месяц " + "1" + " Денег " + bankAccount + " Надо работать. ");
-            bankAccount = bankAccount + income - expenses;
-        }
-        for (int month = 2; month <= 12; month++)
-            if (bankAccount < threshold) {
-                bankAccount = bankAccount + income - expenses;
-                System.out.println("Месяц " + month + " Денег " + bankAccount + " Надо работать. " + "Заработал " + income + " Потратил " + expenses);
+        for (int month = 1; month <= 12; month++)
+            if (bankAccount > threshold) {
+                int more = (bankAccount -= expenses) - (bankAccount / 3);
+                System.out.println(
+                        "Месяц " + month + "." +
+                                "Денег " + bankAccount + "." +
+                                " Буду отдыхать." +
+                                " Потратил -" + expenses + "," +
+                                " затем ещё -" + more);
+                bankAccount /= 3;
             } else {
-                bankAccount = (bankAccount - expenses) / 3;
-                System.out.println("Месяц " + month + " Буду отдыхать! ");
+                System.out.println(
+                        "Месяц " + month +
+                                " Денег " + bankAccount +
+                                " Придётся работать. " +
+                                "Заработал +" + income +
+                                " Потратил -" + expenses);
+                bankAccount += income;
+                bankAccount -= expenses;
             }
         return bankAccount;
     }
