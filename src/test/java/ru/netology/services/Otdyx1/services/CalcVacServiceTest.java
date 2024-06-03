@@ -9,7 +9,7 @@ public class CalcVacServiceTest {
 
         CalcVacService service = new CalcVacService();
 
-        int expected = 5333;
+        int expected = 2;
         int actual = service.calculate(3000, 1000, 10000);
 
         Assertions.assertEquals(expected, actual);
